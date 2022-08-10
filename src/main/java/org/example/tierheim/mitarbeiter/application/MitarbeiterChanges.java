@@ -13,7 +13,7 @@ public class MitarbeiterChanges {
     @NonNull
     Name name;
 
-    Mitarbeiter apply(final Mitarbeiter.MitarbeiterBuilder builder) {
+    public Mitarbeiter apply(final Mitarbeiter.MitarbeiterBuilder builder) {
         return builder
                 .name(name)
                 .build();

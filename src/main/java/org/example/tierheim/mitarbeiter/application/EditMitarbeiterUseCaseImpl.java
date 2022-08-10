@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.example.tierheim.mitarbeiter.Mitarbeiter;
 import org.example.tierheim.mitarbeiter.MitarbeiterId;
 import org.example.tierheim.mitarbeiter.MitarbeiterRepository;
+import org.example.tierheim.mitarbeiter.adapter.rest.MitarbeiterNichtVorhandenException;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,7 +16,7 @@ final class EditMitarbeiterUseCaseImpl implements EditMitarbeiterUseCase {
     @Override
     public Mitarbeiter execute(final MitarbeiterId id, final MitarbeiterChanges input) {
         final Mitarbeiter mitarbeiter = repository.findById(id)
-                .orElseThrow(); // TODO Fehlermeldung
+                .orElseThrow(() -> new MitarbeiterNichtVorhandenException(id.toString()));
         final Mitarbeiter updated = input.apply(mitarbeiter.toBuilder());
         return repository.save(updated);
     }
