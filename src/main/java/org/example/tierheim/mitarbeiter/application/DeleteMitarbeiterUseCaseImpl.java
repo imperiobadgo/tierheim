@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.example.tierheim.mitarbeiter.Mitarbeiter;
 import org.example.tierheim.mitarbeiter.MitarbeiterId;
 import org.example.tierheim.mitarbeiter.MitarbeiterRepository;
-import org.example.tierheim.mitarbeiter.adapter.rest.MitarbeiterNichtVorhandenException;
 import org.springframework.stereotype.Component;
 
 @Component

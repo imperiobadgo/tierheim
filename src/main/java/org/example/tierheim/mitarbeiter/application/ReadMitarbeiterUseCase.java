@@ -9,6 +9,6 @@ public interface ReadMitarbeiterUseCase {
 
     List<Mitarbeiter> findAll();
 
-    Mitarbeiter getById(MitarbeiterId id);
+    Mitarbeiter findById(MitarbeiterId id);
 
 }

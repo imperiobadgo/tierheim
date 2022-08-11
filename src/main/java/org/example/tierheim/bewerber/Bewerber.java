@@ -1,4 +1,4 @@
-package org.example.tierheim;
+package org.example.tierheim.bewerber;
 
 import lombok.Builder;
 import lombok.NonNull;
@@ -8,7 +8,7 @@ import org.example.tierheim.shared.Name;
 import java.util.UUID;
 
 @Value
-@Builder
+@Builder(toBuilder = true)
 public class Bewerber {
 
     @NonNull

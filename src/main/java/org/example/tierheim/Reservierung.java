@@ -3,6 +3,7 @@ package org.example.tierheim;
 import lombok.Builder;
 import lombok.NonNull;
 import lombok.Value;
+import org.example.tierheim.bewerber.BewerberId;
 
 import java.util.UUID;
 

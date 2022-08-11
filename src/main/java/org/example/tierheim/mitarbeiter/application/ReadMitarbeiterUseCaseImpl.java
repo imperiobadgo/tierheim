@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.example.tierheim.mitarbeiter.Mitarbeiter;
 import org.example.tierheim.mitarbeiter.MitarbeiterId;
 import org.example.tierheim.mitarbeiter.MitarbeiterRepository;
-import org.example.tierheim.mitarbeiter.adapter.rest.MitarbeiterNichtVorhandenException;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -21,7 +20,7 @@ final class ReadMitarbeiterUseCaseImpl implements ReadMitarbeiterUseCase {
     }
 
     @Override
-    public Mitarbeiter getById(final MitarbeiterId id) {
+    public Mitarbeiter findById(final MitarbeiterId id) {
         return repository.findById(id)
                 .orElseThrow(() -> new MitarbeiterNichtVorhandenException(id.toString()));
     }

@@ -46,7 +46,7 @@ public class MitarbeiterController {
 
     @GetMapping("/{id}")
     public MitarbeiterReadModel findById(@PathVariable("id") final UUID id) {
-        return mapper.toReadModel(read.getById(MitarbeiterIdMapper.fromUuid(id)));
+        return mapper.toReadModel(read.findById(MitarbeiterIdMapper.fromUuid(id)));
     }
 
     @PutMapping("/{id}")

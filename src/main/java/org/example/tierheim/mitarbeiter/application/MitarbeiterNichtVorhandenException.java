@@ -1,4 +1,4 @@
-package org.example.tierheim.mitarbeiter.adapter.rest;
+package org.example.tierheim.mitarbeiter.application;
 
 public class MitarbeiterNichtVorhandenException extends RuntimeException {
 
