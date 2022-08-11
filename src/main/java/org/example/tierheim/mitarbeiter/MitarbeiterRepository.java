@@ -11,4 +11,8 @@ public interface MitarbeiterRepository {
 
     Mitarbeiter save(Mitarbeiter mitarbeiter);
 
+    Optional<Mitarbeiter> delete(MitarbeiterId id);
+
+    void deleteAll();
+
 }

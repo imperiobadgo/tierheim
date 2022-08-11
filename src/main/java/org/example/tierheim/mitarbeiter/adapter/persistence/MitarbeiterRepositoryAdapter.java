@@ -38,4 +38,19 @@ final class MitarbeiterRepositoryAdapter implements MitarbeiterRepository {
         return mapper.toDomain(saved);
     }
 
+    @Override
+    public Optional<Mitarbeiter> delete(MitarbeiterId id) {
+        final Optional<MitarbeiterJpa> entity = repository.findById(id.getValue());
+        if (entity.isEmpty()) {
+            return Optional.empty();
+        }
+        repository.delete(entity.get());
+        return Optional.ofNullable(mapper.toDomain(entity.get()));
+    }
+
+    @Override
+    public void deleteAll() {
+        repository.deleteAll();
+    }
+
 }

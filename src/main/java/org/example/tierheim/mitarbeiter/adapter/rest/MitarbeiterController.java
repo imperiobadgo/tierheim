@@ -2,6 +2,7 @@ package org.example.tierheim.mitarbeiter.adapter.rest;
 
 import org.example.tierheim.mitarbeiter.adapter.shared.MitarbeiterIdMapper;
 import org.example.tierheim.mitarbeiter.application.CreateMitarbeiterUseCase;
+import org.example.tierheim.mitarbeiter.application.DeleteMitarbeiterUseCase;
 import org.example.tierheim.mitarbeiter.application.EditMitarbeiterUseCase;
 import org.example.tierheim.mitarbeiter.application.ReadMitarbeiterUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,10 @@ public class MitarbeiterController {
     private EditMitarbeiterUseCase edit;
     @Autowired
     private ReadMitarbeiterUseCase read;
+    @Autowired
+    private DeleteMitarbeiterUseCase delete;
 
-    @GetMapping("/mitarbeiter")
+    @GetMapping()
     public List<MitarbeiterReadModel> findAll() {
         return read.findAll()
                 .stream()
@@ -36,17 +39,17 @@ public class MitarbeiterController {
                 .collect(Collectors.toList());
     }
 
-    @PostMapping("/mitarbeiter")
-    public void save(@RequestBody MitarbeiterWriteModel mitarbeiter) {
-        create.execute(mapper.toChanges(mitarbeiter));
+    @PostMapping()
+    public MitarbeiterReadModel create(@RequestBody final MitarbeiterCreateModel mitarbeiter) {
+        return mapper.toReadModel(create.execute(mapper.toChanges(mitarbeiter)));
     }
 
-    @GetMapping("/mitarbeiter/{id}")
+    @GetMapping("/{id}")
     public MitarbeiterReadModel findById(@PathVariable("id") final UUID id) {
         return mapper.toReadModel(read.getById(MitarbeiterIdMapper.fromUuid(id)));
     }
 
-    @PutMapping("/mitarbeiter/{id}")
+    @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public MitarbeiterReadModel edit(@PathVariable("id") final UUID id, @RequestBody final MitarbeiterWriteModel mitarbeiter) {
         return mapper.toReadModel(
@@ -54,4 +57,15 @@ public class MitarbeiterController {
                 mapper.toChanges(mitarbeiter))
         );
     }
+
+    @DeleteMapping("/{id}")
+    public MitarbeiterReadModel delete(@PathVariable("id") final UUID id) {
+        return mapper.toReadModel(delete.execute(MitarbeiterIdMapper.fromUuid(id)));
+    }
+
+    @DeleteMapping()
+    public void deleteAll() {
+        delete.all();
+    }
+
 }

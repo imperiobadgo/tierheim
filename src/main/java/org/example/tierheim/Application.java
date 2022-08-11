@@ -1,8 +1,10 @@
 package org.example.tierheim;
 
-import org.example.tierheim.mitarbeiter.application.CreateMitarbeiterUseCase;
-import org.example.tierheim.mitarbeiter.application.ReadMitarbeiterUseCase;
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.example.tierheim.mitarbeiter.application.CreateMitarbeiterUseCase;
+//import org.example.tierheim.mitarbeiter.application.MitarbeiterChanges;
+//import org.example.tierheim.mitarbeiter.application.ReadMitarbeiterUseCase;
+//import org.example.tierheim.shared.Name;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

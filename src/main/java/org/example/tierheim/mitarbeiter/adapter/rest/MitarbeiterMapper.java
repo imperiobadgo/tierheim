@@ -14,6 +14,8 @@ public interface MitarbeiterMapper {
 
     MitarbeiterReadModel toReadModel(Mitarbeiter domain);
 
+    MitarbeiterChanges toChanges(MitarbeiterCreateModel model);
+
     MitarbeiterChanges toChanges(MitarbeiterWriteModel model);
 
 }

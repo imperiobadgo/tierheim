@@ -7,23 +7,20 @@ import org.example.tierheim.mitarbeiter.MitarbeiterRepository;
 import org.example.tierheim.mitarbeiter.adapter.rest.MitarbeiterNichtVorhandenException;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Component
 @RequiredArgsConstructor
-final class ReadMitarbeiterUseCaseImpl implements ReadMitarbeiterUseCase {
+final class DeleteMitarbeiterUseCaseImpl implements DeleteMitarbeiterUseCase{
 
     private final MitarbeiterRepository repository;
 
     @Override
-    public List<Mitarbeiter> findAll() {
-        return repository.findAll();
-    }
-
-    @Override
-    public Mitarbeiter getById(final MitarbeiterId id) {
-        return repository.findById(id)
+    public Mitarbeiter execute(MitarbeiterId id) {
+        return repository.delete(id)
                 .orElseThrow(() -> new MitarbeiterNichtVorhandenException(id.toString()));
     }
 
+    @Override
+    public void all() {
+        repository.deleteAll();
+    }
 }
