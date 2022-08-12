@@ -17,4 +17,5 @@ public class Bewerber {
 
     @NonNull
     Name name;
+
 }

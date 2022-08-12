@@ -1,4 +1,6 @@
-package org.example.tierheim;
+package org.example.tierheim.reservierungen.application;
+
+import org.example.tierheim.TierStatus;
 
 public class ReservierungNichtMoeglichException extends RuntimeException {
 

@@ -5,6 +5,9 @@ import lombok.NonNull;
 import lombok.ToString;
 import lombok.Value;
 import org.example.tierheim.bewerber.BewerberId;
+import org.example.tierheim.reservierungen.Reservierung;
+import org.example.tierheim.reservierungen.application.ReservierungNichtMoeglichException;
+import org.example.tierheim.reservierungen.application.ReservierungStornierenNichtMoeglichException;
 import org.example.tierheim.shared.Name;
 
 import java.util.Optional;
