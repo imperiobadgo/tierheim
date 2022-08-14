@@ -40,8 +40,8 @@ public class BewerberController {
     }
 
     @PostMapping()
-    public BewerberReadModel create(@RequestBody final BewerberCreateModel mitarbeiter) {
-        return mapper.toReadModel(create.execute(mapper.toChanges(mitarbeiter)));
+    public BewerberReadModel create(@RequestBody final BewerberCreateModel bewerber) {
+        return mapper.toReadModel(create.execute(mapper.toChanges(bewerber)));
     }
 
     @GetMapping("/{id}")
@@ -51,10 +51,10 @@ public class BewerberController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public BewerberReadModel edit(@PathVariable("id") final UUID id, @RequestBody final BewerberWriteModel mitarbeiter) {
+    public BewerberReadModel edit(@PathVariable("id") final UUID id, @RequestBody final BewerberWriteModel bewerber) {
         return mapper.toReadModel(
                 edit.execute(BewerberIdMapper.fromUuid(id),
-                        mapper.toChanges(mitarbeiter))
+                        mapper.toChanges(bewerber))
         );
     }
 

@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.NonNull;
 import lombok.ToString;
 import lombok.Value;
+import org.example.tierheim.art.ArtId;
 import org.example.tierheim.bewerber.BewerberId;
 import org.example.tierheim.reservierungen.Reservierung;
 import org.example.tierheim.reservierungen.application.ReservierungNichtMoeglichException;
