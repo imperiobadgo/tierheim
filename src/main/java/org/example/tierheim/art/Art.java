@@ -15,6 +15,9 @@ public class Art {
     @Builder.Default
     ArtId id = new ArtId(UUID.randomUUID());
 
+    @Builder.Default
+    long version = 0;
+
     @NonNull
     Name name;
 

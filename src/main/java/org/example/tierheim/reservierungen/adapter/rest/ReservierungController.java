@@ -1,18 +1,6 @@
 package org.example.tierheim.reservierungen.adapter.rest;
 
-import org.example.tierheim.mitarbeiter.adapter.rest.MitarbeiterCreateModel;
-import org.example.tierheim.mitarbeiter.adapter.rest.MitarbeiterMapper;
-import org.example.tierheim.mitarbeiter.adapter.rest.MitarbeiterReadModel;
-import org.example.tierheim.mitarbeiter.adapter.rest.MitarbeiterWriteModel;
-import org.example.tierheim.mitarbeiter.adapter.shared.MitarbeiterIdMapper;
-import org.example.tierheim.mitarbeiter.application.CreateMitarbeiterUseCase;
-import org.example.tierheim.mitarbeiter.application.DeleteMitarbeiterUseCase;
-import org.example.tierheim.mitarbeiter.application.EditMitarbeiterUseCase;
-import org.example.tierheim.mitarbeiter.application.ReadMitarbeiterUseCase;
-import org.example.tierheim.reservierungen.ReservierungId;
 import org.example.tierheim.reservierungen.adapter.shared.ReservierungIdMapper;
-import org.example.tierheim.reservierungen.application.CreateReservierungUseCase;
-import org.example.tierheim.reservierungen.application.DeleteReservierungUseCase;
 import org.example.tierheim.reservierungen.application.EditReservierungUseCase;
 import org.example.tierheim.reservierungen.application.ReadReservierungUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,13 +21,9 @@ public class ReservierungController {
     private ReservierungMapper mapper;
 
     @Autowired
-    private CreateReservierungUseCase create;
-    @Autowired
     private EditReservierungUseCase edit;
     @Autowired
     private ReadReservierungUseCase read;
-    @Autowired
-    private DeleteReservierungUseCase delete;
 
     @GetMapping()
     public List<ReservierungReadModel> findAll() {
@@ -47,11 +31,6 @@ public class ReservierungController {
                 .stream()
                 .map(mapper::toReadModel)
                 .collect(Collectors.toList());
-    }
-
-    @PostMapping()
-    public ReservierungReadModel create(@RequestBody final ReservierungCreateModel reservierung) {
-        return mapper.toReadModel(create.execute(mapper.toChanges(reservierung)));
     }
 
     @GetMapping("/{id}")
@@ -67,15 +46,4 @@ public class ReservierungController {
                         mapper.toChanges(reservierung))
         );
     }
-
-    @DeleteMapping("/{id}")
-    public ReservierungReadModel delete(@PathVariable("id") final UUID id) {
-        return mapper.toReadModel(delete.execute(ReservierungIdMapper.fromUuid(id)));
-    }
-
-    @DeleteMapping()
-    public void deleteAll() {
-        delete.all();
-    }
-
 }

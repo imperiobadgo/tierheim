@@ -1,4 +1,4 @@
-package org.example.tierheim;
+package org.example.tierheim.tier;
 
 import lombok.NonNull;
 import lombok.Value;

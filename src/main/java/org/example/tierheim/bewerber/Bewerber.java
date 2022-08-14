@@ -15,6 +15,9 @@ public class Bewerber {
     @Builder.Default
     BewerberId id = new BewerberId(UUID.randomUUID());
 
+    @Builder.Default
+    long version = 0;
+
     @NonNull
     Name name;
 
