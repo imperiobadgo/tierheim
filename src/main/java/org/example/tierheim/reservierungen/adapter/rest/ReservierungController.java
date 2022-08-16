@@ -1,5 +1,6 @@
 package org.example.tierheim.reservierungen.adapter.rest;
 
+import io.swagger.v3.oas.annotations.Operation;
 import org.example.tierheim.reservierungen.adapter.shared.ReservierungIdMapper;
 import org.example.tierheim.reservierungen.application.EditReservierungUseCase;
 import org.example.tierheim.reservierungen.application.ReadReservierungUseCase;
@@ -25,6 +26,7 @@ public class ReservierungController {
     @Autowired
     private ReadReservierungUseCase read;
 
+    @Operation(summary = "gibt alle Reservierungen zurück")
     @GetMapping()
     public List<ReservierungReadModel> findAll() {
         return read.findAll()
@@ -33,11 +35,13 @@ public class ReservierungController {
                 .collect(Collectors.toList());
     }
 
+    @Operation(summary = "gibt die gesuchte Reservierung zurück")
     @GetMapping("/{id}")
     public ReservierungReadModel findById(@PathVariable("id") final UUID id) {
         return mapper.toReadModel(read.findById(ReservierungIdMapper.fromUuid(id)));
     }
 
+    @Operation(summary = "editiert die gegebene Reservierung")
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ReservierungReadModel edit(@PathVariable("id") final UUID id, @RequestBody final ReservierungWriteModel reservierung) {

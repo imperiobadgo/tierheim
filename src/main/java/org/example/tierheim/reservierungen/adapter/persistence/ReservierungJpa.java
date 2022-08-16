@@ -33,7 +33,6 @@ class ReservierungJpa {
     @Column
     long version;
 
-    @Version
     @Column
     UUID bewerberId;
 

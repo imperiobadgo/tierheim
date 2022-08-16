@@ -1,5 +1,6 @@
 package org.example.tierheim.bewerber.adapter.rest;
 
+import io.swagger.v3.oas.annotations.Operation;
 import org.example.tierheim.bewerber.adapter.shared.BewerberIdMapper;
 import org.example.tierheim.bewerber.application.CreateBewerberUseCase;
 import org.example.tierheim.bewerber.application.DeleteBewerberUseCase;
@@ -31,6 +32,7 @@ public class BewerberController {
     @Autowired
     private ReadBewerberUseCase read;
 
+    @Operation(summary = "listet alle Bewerber auf")
     @GetMapping()
     public List<BewerberReadModel> findAll() {
         return read.findAll()
@@ -39,16 +41,19 @@ public class BewerberController {
                 .collect(Collectors.toList());
     }
 
+    @Operation(summary = "legt einen neuen Bewerber an")
     @PostMapping()
     public BewerberReadModel create(@RequestBody final BewerberCreateModel bewerber) {
         return mapper.toReadModel(create.execute(mapper.toChanges(bewerber)));
     }
 
+    @Operation(summary = "gibt den gesuchten Bewerber zurück")
     @GetMapping("/{id}")
     public BewerberReadModel findById(@PathVariable("id") final UUID id) {
         return mapper.toReadModel(read.findById(BewerberIdMapper.fromUuid(id)));
     }
 
+    @Operation(summary = "editiert den gegeben Bewerber")
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public BewerberReadModel edit(@PathVariable("id") final UUID id, @RequestBody final BewerberWriteModel bewerber) {
@@ -58,11 +63,13 @@ public class BewerberController {
         );
     }
 
+    @Operation(summary = "löscht den gegebenen Bewerber")
     @DeleteMapping("/{id}")
     public BewerberReadModel delete(@PathVariable("id") final UUID id) {
         return mapper.toReadModel(delete.execute(BewerberIdMapper.fromUuid(id)));
     }
 
+    @Operation(summary = "löscht alle Bewerber")
     @DeleteMapping()
     public void deleteAll() {
         delete.all();

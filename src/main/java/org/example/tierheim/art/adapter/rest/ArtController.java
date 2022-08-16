@@ -1,5 +1,6 @@
 package org.example.tierheim.art.adapter.rest;
 
+import io.swagger.v3.oas.annotations.Operation;
 import org.example.tierheim.art.adapter.shared.ArtIdMapper;
 import org.example.tierheim.art.application.CreateArtUseCase;
 import org.example.tierheim.art.application.DeleteArtUseCase;
@@ -28,6 +29,7 @@ public class ArtController {
     @Autowired
     private ReadArtUseCase read;
 
+    @Operation(summary = "listet alle Arten auf")
     @GetMapping()
     public List<ArtReadModel> findAll() {
         return read.findAll()
@@ -36,21 +38,25 @@ public class ArtController {
                 .collect(Collectors.toList());
     }
 
+    @Operation(summary = "legt eine neue Art an")
     @PostMapping()
     public ArtReadModel create(@RequestBody final ArtCreateModel art) {
         return mapper.toReadModel(create.execute(mapper.toChanges(art)));
     }
 
+    @Operation(summary = "gibt die gesuchte Art zurück")
     @GetMapping("/{id}")
     public ArtReadModel findById(@PathVariable("id") final UUID id) {
         return mapper.toReadModel(read.findById(ArtIdMapper.fromUuid(id)));
     }
 
+    @Operation(summary = "löscht die gegebene Art")
     @DeleteMapping("/{id}")
     public ArtReadModel delete(@PathVariable("id") final UUID id) {
         return mapper.toReadModel(delete.execute(ArtIdMapper.fromUuid(id)));
     }
 
+    @Operation(summary = "löscht alle Arten")
     @DeleteMapping()
     public void deleteAll() {
         delete.all();

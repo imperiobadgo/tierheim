@@ -1,5 +1,6 @@
 package org.example.tierheim.tier.adapter.rest;
 
+import io.swagger.v3.oas.annotations.Operation;
 import org.example.tierheim.bewerber.adapter.shared.BewerberIdMapper;
 import org.example.tierheim.tier.adapter.shared.TierIdMapper;
 import org.example.tierheim.tier.application.*;
@@ -35,6 +36,7 @@ public class TierController {
     @Autowired
     private ReservierungStornierenUseCase stornieren;
 
+    @Operation(summary = "listet alle tiere auf")
     @GetMapping()
     public List<TierReadModel> findAll() {
         return read.findAll()
@@ -43,16 +45,19 @@ public class TierController {
                 .collect(Collectors.toList());
     }
 
+    @Operation(summary = "legt ein neues Tier an")
     @PostMapping()
     public TierReadModel create(@RequestBody final TierCreateModel input) {
         return mapper.toReadModel(create.execute(mapper.toChanges(input)));
     }
 
+    @Operation(summary = "gibt das gesuchte Tier zurück")
     @GetMapping("/{id}")
     public TierReadModel findById(@PathVariable("id") final UUID id) {
         return mapper.toReadModel(read.findById(TierIdMapper.fromUuid(id)));
     }
 
+    @Operation(summary = "ändert die Daten des Tieres")
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public TierReadModel edit(@PathVariable("id") final UUID id, @RequestBody final TierWriteModel input) {
@@ -62,6 +67,7 @@ public class TierController {
         );
     }
 
+    @Operation(summary = "reserviert das Tier für den angebenen Bewerber")
     @PutMapping("/{id}/{bewerberId}")
     @ResponseStatus(HttpStatus.OK)
     public TierReadModel reservieren(@PathVariable("id") final UUID id, @PathVariable("bewerberId") final UUID bewerberId){
@@ -70,6 +76,7 @@ public class TierController {
         );
     }
 
+    @Operation(summary = "stoniert die Reservierung mit dem angebenen Bewerber")
     @DeleteMapping("/{id}/{bewerberId}")
     @ResponseStatus(HttpStatus.OK)
     public TierReadModel stornieren(@PathVariable("id") final UUID id, @PathVariable("bewerberId") final UUID bewerberId){
@@ -78,11 +85,13 @@ public class TierController {
         );
     }
 
+    @Operation(summary = "löscht das angegebene Tier")
     @DeleteMapping("/{id}")
     public TierReadModel delete(@PathVariable("id") final UUID id) {
         return mapper.toReadModel(delete.execute(TierIdMapper.fromUuid(id)));
     }
 
+    @Operation(summary = "löscht alle tiere")
     @DeleteMapping()
     public void deleteAll() {
         delete.all();
