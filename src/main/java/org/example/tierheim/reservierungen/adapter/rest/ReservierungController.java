@@ -1,6 +1,7 @@
 package org.example.tierheim.reservierungen.adapter.rest;
 
 import io.swagger.v3.oas.annotations.Operation;
+import org.example.tierheim.Application;
 import org.example.tierheim.reservierungen.adapter.shared.ReservierungIdMapper;
 import org.example.tierheim.reservierungen.application.EditReservierungUseCase;
 import org.example.tierheim.reservierungen.application.ReadReservierungUseCase;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 
 @Component
 @RestController
+@CrossOrigin(origins = Application.CrossOriginUrl)
 @RequestMapping("/api/reservierungen")
 public class ReservierungController {
 

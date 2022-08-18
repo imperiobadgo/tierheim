@@ -1,6 +1,7 @@
 package org.example.tierheim.tier.adapter.rest;
 
 import io.swagger.v3.oas.annotations.Operation;
+import org.example.tierheim.Application;
 import org.example.tierheim.bewerber.adapter.shared.BewerberIdMapper;
 import org.example.tierheim.tier.adapter.shared.TierIdMapper;
 import org.example.tierheim.tier.application.*;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 
 @Component
 @RestController
+@CrossOrigin(origins = Application.CrossOriginUrl)
 @RequestMapping("/api/tier")
 public class TierController {
 

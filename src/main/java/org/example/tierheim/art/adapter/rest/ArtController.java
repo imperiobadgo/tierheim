@@ -1,6 +1,7 @@
 package org.example.tierheim.art.adapter.rest;
 
 import io.swagger.v3.oas.annotations.Operation;
+import org.example.tierheim.Application;
 import org.example.tierheim.art.adapter.shared.ArtIdMapper;
 import org.example.tierheim.art.application.CreateArtUseCase;
 import org.example.tierheim.art.application.DeleteArtUseCase;
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
 
 @Component
 @RestController
+@CrossOrigin(origins = Application.CrossOriginUrl)
 @RequestMapping("/api/art")
 public class ArtController {
 

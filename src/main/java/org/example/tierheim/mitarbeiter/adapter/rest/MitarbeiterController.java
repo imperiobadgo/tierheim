@@ -1,6 +1,7 @@
 package org.example.tierheim.mitarbeiter.adapter.rest;
 
 import io.swagger.v3.oas.annotations.Operation;
+import org.example.tierheim.Application;
 import org.example.tierheim.mitarbeiter.adapter.shared.MitarbeiterIdMapper;
 import org.example.tierheim.mitarbeiter.application.CreateMitarbeiterUseCase;
 import org.example.tierheim.mitarbeiter.application.DeleteMitarbeiterUseCase;
@@ -17,6 +18,7 @@ import java.util.stream.Collectors;
 
 @Component
 @RestController
+@CrossOrigin(origins = Application.CrossOriginUrl)
 @RequestMapping("/api/mitarbeiter")
 public class MitarbeiterController {
 

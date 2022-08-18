@@ -1,6 +1,7 @@
 package org.example.tierheim.bewerber.adapter.rest;
 
 import io.swagger.v3.oas.annotations.Operation;
+import org.example.tierheim.Application;
 import org.example.tierheim.bewerber.adapter.shared.BewerberIdMapper;
 import org.example.tierheim.bewerber.application.CreateBewerberUseCase;
 import org.example.tierheim.bewerber.application.DeleteBewerberUseCase;
@@ -17,6 +18,7 @@ import java.util.stream.Collectors;
 
 @Component
 @RestController
+@CrossOrigin(origins = Application.CrossOriginUrl)
 @RequestMapping("/api/bewerber")
 public class BewerberController {
 

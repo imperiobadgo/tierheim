@@ -7,11 +7,14 @@ import {AppRoutingModule} from "./app-routing.module";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {MitarbeiterService} from "./service/mitarbeiter.service";
+import { BewerberListComponent } from './bewerber-list/bewerber-list.component';
+import {BewerberService} from "./service/bewerber.service";
 
 @NgModule({
   declarations: [
     AppComponent,
-    MitarbeiterListComponent
+    MitarbeiterListComponent,
+    BewerberListComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +22,10 @@ import {MitarbeiterService} from "./service/mitarbeiter.service";
     HttpClientModule,
     FormsModule
   ],
-  providers: [MitarbeiterService],
+  providers: [
+    MitarbeiterService,
+    BewerberService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
