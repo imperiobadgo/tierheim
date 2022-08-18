@@ -1,16 +1,35 @@
 <div class="card my-5">
   <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="newName"
+               class="form-control"
+               id="name"
+               name="name"
+               placeholder="Neuen Bewerbernamen eingeben..."
+               required #name="ngModel">
+      </div>
+      <button type="submit" [disabled]="!userForm.form.valid"
+              class="btn btn-info">Create</button>
+    </form>
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Name</th>
+        <th scope="col">Bewerber Name</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let b of bewerber">
         <td>{{ b.id }}</td>
         <td>{{ b.name }}</td>
+        <td>
+          <a routerLink="/bewerber/{{ b.id }}" class="btn btn-info">Edit</a>
+        </td>
+        <td>
+          <a (click)="delete(b)" class="btn btn-info">Delete</a>
+        </td>
       </tr>
       </tbody>
     </table>

@@ -6,17 +6,25 @@ import {Mitarbeiter} from "../model/mitarbeiter";
 @Injectable()
 export class MitarbeiterService {
 
-  private readonly usersUrl: string;
+  private readonly url: string;
 
   constructor(private http: HttpClient) {
-    this.usersUrl = 'http://localhost:8080/api/mitarbeiter';
+    this.url = 'http://localhost:8080/api/mitarbeiter';
   }
 
   public findAll(): Observable<Mitarbeiter[]> {
-    return this.http.get<Mitarbeiter[]>(this.usersUrl);
+    return this.http.get<Mitarbeiter[]>(this.url);
   }
 
-  public save(user: Mitarbeiter) {
-    return this.http.post<Mitarbeiter>(this.usersUrl, user);
+  public getById(id: string): Observable<Mitarbeiter> {
+    return this.http.get<Mitarbeiter>(this.url + "/" + id);
+  }
+
+  public edit(input: Mitarbeiter){
+    return this.http.put<Mitarbeiter>(this.url + "/" + input.id, input);
+  }
+
+  public save(input: Mitarbeiter) {
+    return this.http.post<Mitarbeiter>(this.url, input);
   }
 }

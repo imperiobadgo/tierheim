@@ -4,18 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71511cdd-c329-40b8-86dc-a60300a81bcf" name="Changes" comment="Angular Added mitarbeiter List WIP">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="71511cdd-c329-40b8-86dc-a60300a81bcf" name="Changes" comment="Angular Added bewerber List">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular/tierheimClient/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/tierheimClient/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/tierheimClient/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/tierheimClient/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular/tierheimClient/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/tierheimClient/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/tierheim/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/tierheim/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/tierheim/art/adapter/rest/ArtController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/tierheim/art/adapter/rest/ArtController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/tierheim/bewerber/adapter/rest/BewerberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/tierheim/bewerber/adapter/rest/BewerberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/tierheim/mitarbeiter/adapter/rest/MitarbeiterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/tierheim/mitarbeiter/adapter/rest/MitarbeiterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/tierheim/reservierungen/adapter/rest/ReservierungController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/tierheim/reservierungen/adapter/rest/ReservierungController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/tierheim/tier/adapter/rest/TierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/tierheim/tier/adapter/rest/TierController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/tierheimClient/src/app/bewerber-list/bewerber-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/tierheimClient/src/app/bewerber-list/bewerber-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/tierheimClient/src/app/bewerber-list/bewerber-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/tierheimClient/src/app/bewerber-list/bewerber-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/tierheimClient/src/app/service/bewerber.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/tierheimClient/src/app/service/bewerber.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/tierheimClient/src/app/service/mitarbeiter.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/tierheimClient/src/app/service/mitarbeiter.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,7 +202,7 @@
       <workItem from="1660683902592" duration="403000" />
       <workItem from="1660684486939" duration="3118000" />
       <workItem from="1660823532298" duration="925000" />
-      <workItem from="1660824599398" duration="6412000" />
+      <workItem from="1660824599398" duration="9209000" />
     </task>
     <task id="LOCAL-00001" summary="Basis Struktur, Mitarbeiter Persistenz">
       <created>1659798726412</created>
@@ -271,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660687598315</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Angular Added bewerber List">
+      <created>1660832284702</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1660832284702</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,9 +305,20 @@
     <MESSAGE value="Rest API dokumentiert" />
     <MESSAGE value="Angular Init" />
     <MESSAGE value="Angular Added mitarbeiter List WIP" />
-    <option name="LAST_COMMIT_MESSAGE" value="Angular Added mitarbeiter List WIP" />
+    <MESSAGE value="Angular Added bewerber List" />
+    <option name="LAST_COMMIT_MESSAGE" value="Angular Added bewerber List" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/angular/tierheimClient/src/app/bewerber-list/bewerber-list.component.ts</url>
+          <line>39</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.example.tierheim.mitarbeiter.adapter.persistence.$Proxy97" memberName="h" />

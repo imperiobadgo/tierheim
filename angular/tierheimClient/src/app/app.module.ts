@@ -9,12 +9,14 @@ import {FormsModule} from "@angular/forms";
 import {MitarbeiterService} from "./service/mitarbeiter.service";
 import { BewerberListComponent } from './bewerber-list/bewerber-list.component';
 import {BewerberService} from "./service/bewerber.service";
+import { BewerberEditComponent } from './bewerber-edit/bewerber-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MitarbeiterListComponent,
-    BewerberListComponent
+    BewerberListComponent,
+    BewerberEditComponent
   ],
   imports: [
     BrowserModule,
